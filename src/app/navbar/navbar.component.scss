@@ -1,0 +1,23 @@
+.navbar {
+    background-color: antiquewhite;
+  &__content {
+    max-width: 90%;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__brand-name {
+    font-size: 40px;
+    letter-spacing: 2.5px;
+    cursor: default;
+    & span {
+      color: blue;
+    }
+  }
+  &__cart {
+    color: blue;
+    cursor: pointer;
+  }
+}

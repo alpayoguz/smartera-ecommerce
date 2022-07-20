@@ -1,0 +1,12 @@
+.products-list{
+    padding: 20px 0px;
+    margin-top: 20px;
+    &__header{
+        width: 90%;
+        font-size: 30px;
+        letter-spacing: 1px;
+        max-width: 1600px;
+        margin: auto;
+        margin-bottom: 30px;
+    }
+}
