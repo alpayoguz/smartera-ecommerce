@@ -1,0 +1,60 @@
+.product-details {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #e7e6eb29;
+  &__content {
+    display: flex;
+    justify-content: space-around;
+    max-width: 1200px;
+    min-width: 800px;
+    min-height: 50vh;
+    padding: 50px;
+    background-color: #ffffff;
+    border: 1px solid #e7e6eb;
+    box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.08);
+    border-radius: 8px;
+  }
+  &__info {
+    max-width: 300px;
+  }
+
+  &__title {
+    font-family: "Rambla";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 37px;
+    color: #d55;
+    margin-bottom: 20px;
+  }
+  &__price {
+    font-family: "Rockwell Condensed";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 25px;
+    line-height: 42px;
+    color: #595959; // #e7e390
+    margin-bottom: 20px;
+  }
+  &__image {
+    width: 400px;
+    max-height: 400px;
+    object-fit: contain;
+  }
+  &__button-container {
+    text-align: ce;
+  }
+  &__button {
+    background: #fbbf23;
+    border-radius: 8px;
+    border: 1px solid;
+    width: 200px;
+    height: 35px;
+    cursor: pointer;
+    &:hover {
+      background-color: blue;
+    }
+  }
+}

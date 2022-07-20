@@ -1,5 +1,6 @@
 .navbar {
     background-color: antiquewhite;
+    padding: 15px 0px;
   &__content {
     max-width: 90%;
     margin: auto;
@@ -10,6 +11,7 @@
 
   &__brand-name {
     font-size: 40px;
+    margin:0px ;
     letter-spacing: 2.5px;
     cursor: default;
     & span {

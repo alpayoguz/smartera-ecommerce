@@ -1,5 +1,4 @@
-import { products } from './../products';
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-products',
@@ -8,14 +7,7 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 })
 export class ProductsComponent implements OnInit {
 
-  products = products
-  @Output() tetikleyici = new EventEmitter()
-  share(){
-    alert("Product shared")
-  }
-  onNotify(){
-    alert("Child component olan product-alerts bir EventEmitter yaydı. Bende bilgi sahibi oldum")
-  }
+  
   constructor() { }
 
   ngOnInit(): void {
