@@ -10,6 +10,7 @@ export interface IProduct{
   price:number,
   description:string,
   image: string,
+  images:string []
 }
 
 @Component({
@@ -20,13 +21,10 @@ export interface IProduct{
 export class ProductsListComponent implements OnInit {
 
   products:IProduct[] = []
-  
-  constructor(private router:Router,private _productsListService:ProductsListService, private productService: ProductService, private cartService : CartService, private cartService2 : CartService) {
-  
+
+  constructor(private router:Router,private _productsListService:ProductsListService, private productService: ProductService, private cartService : CartService) { 
+   
   }
-
- 
-
   ngOnInit(): void {
     this._productsListService.getProductsData()
     .subscribe(data => {
@@ -39,10 +37,11 @@ export class ProductsListComponent implements OnInit {
   }
 
   addToCart(event:any, product : any){
-    event.stopPropagation();
+    event.stopPropagation(); 
     this.cartService.addToCart(product);
-    console.log(this.cartService.cartItemList);
-    console.log(this.cartService2.cartItemList);
+    // console.log(this.cartService.cartItemList);
+    // console.log(this);
+    // console.log(this.cartService);
 
   }
   goToProductDetails(id:number){

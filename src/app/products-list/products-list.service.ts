@@ -8,8 +8,10 @@ import { Observable } from 'rxjs';
 })
 export class ProductsListService {
   _url = 'https://fakestoreapi.com/products'
+  _url2 = "https://api.escuelajs.co/api/v1/products"
+  
   getProductsData(): Observable<IProduct[]>{
-    return this.http.get<IProduct[]>(this._url);
+    return this.http.get<IProduct[]>(this._url2);
   }
   constructor(private http: HttpClient) {
    

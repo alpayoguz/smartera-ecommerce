@@ -1,0 +1,79 @@
+.product-details {
+  min-height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background-color: #e7e6eb29;
+}
+
+.product-details__content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  max-width: 1200px;
+  min-width: 800px;
+  min-height: 50vh;
+  padding: 50px;
+  background-color: #ffffff;
+  border: 1px solid #e7e6eb;
+  -webkit-box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.08);
+          box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.08);
+  border-radius: 8px;
+}
+
+.product-details__info {
+  max-width: 300px;
+}
+
+.product-details__title {
+  font-family: "Rambla";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 37px;
+  color: #d55;
+  margin-bottom: 20px;
+}
+
+.product-details__price {
+  font-family: "Rockwell Condensed";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 25px;
+  line-height: 42px;
+  color: #595959;
+  margin-bottom: 20px;
+}
+
+.product-details__image {
+  width: 400px;
+  max-height: 400px;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+
+.product-details__button-container {
+  text-align: ce;
+}
+
+.product-details__button {
+  background: #fbbf23;
+  border-radius: 8px;
+  border: 1px solid;
+  width: 200px;
+  height: 35px;
+  cursor: pointer;
+}
+
+.product-details__button:hover {
+  background-color: blue;
+}
+/*# sourceMappingURL=product-details.component.css.map */

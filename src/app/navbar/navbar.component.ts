@@ -1,5 +1,8 @@
+import { CartService } from './../cart/cart.service';
 import { Component, OnInit } from '@angular/core';
 import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
+import { Router } from '@angular/router';
+
 
 
 
@@ -10,11 +13,21 @@ import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
 })
 export class NavbarComponent implements OnInit {
 
-  deger = "5"
+  totalProductNumber = 0;
   faCartShopping = faCartShopping;
-  constructor() { }
+  constructor(private router:Router,private cartService: CartService) { }
 
   ngOnInit(): void {
+    this.cartService.getProducts()
+    .subscribe(res => {
+      this.totalProductNumber = res.length
+    } )
+  }
+  goToCart(){
+    this.router.navigate(["/cart"]);
+  }
+  goToHome(){
+    this.router.navigate(["/"])
   }
 
 }

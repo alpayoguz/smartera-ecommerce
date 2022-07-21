@@ -1,3 +1,4 @@
+<app-navbar></app-navbar>
 <ng-container>
     <div class="cart">
         <div class="cart__container">
@@ -5,10 +6,13 @@
                 Order Previews
             </p>
             <div class="cart__products">
-                <div class="cart__product">
+                <div class="cart__product" *ngFor="let item of cartItems">
                     <div class="cart__product-content">
-                        <img class="cart__image" src="https://picsum.photos/200/300" alt="">
-                        <p class="cart__product-name">Apple</p>
+                        <img class="cart__image"  [src]="item.images[1] | safePipe" alt="">
+                        <p class="cart__product-name">{{item.title}}</p>
+                        <p class="cart__product-price">$ {{item.price}}</p>
+
+                        
                     </div>
                     <div class="cart__buttons">
                         <button class="cart__button" type="button">+</button>
@@ -18,7 +22,7 @@
                         <button class="cart__button" type="button">-</button>
                     </div>
                 </div>
-                <div class="cart__product">
+                <!-- <div class="cart__product">
                     <div class="cart__product-content">
                         <img class="cart__image" src="https://picsum.photos/200/300" alt="">
                         <p class="cart__product-name">Apple</p>
@@ -28,9 +32,9 @@
                         <p class="cart__product-count">
                             5
                         </p>
-                        <button class="cart__button" type="button">-</button>
+                        <button  class="cart__button" type="button">-</button>
                     </div>
-                </div>
+                </div> -->
             </div>
         </div>
 

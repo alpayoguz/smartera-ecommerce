@@ -1,0 +1,104 @@
+.cart {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 100vh;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.cart__container {
+  width: 80%;
+}
+
+.cart__header {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 24px;
+  text-align: center;
+  color: #000000;
+}
+
+.cart__products {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  row-gap: 15px;
+}
+
+.cart__product {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  border-bottom: 1px solid #BFBFBF;
+  padding: 25px;
+}
+
+.cart__product-content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  min-width: 600px;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.cart__product-name {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 17px;
+  color: #000000;
+  width: 200px;
+}
+
+.cart__product-price {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 17px;
+  color: #000000;
+  width: 50px;
+}
+
+.cart__product-count {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 17px;
+  background: #BFBFBF;
+  border-radius: 1px;
+  color: #000000;
+  text-align: center;
+  margin: 3px 0px;
+}
+
+.cart__image {
+  width: 200px;
+  height: 200px;
+  border-radius: 10px;
+}
+
+.cart__button {
+  cursor: pointer;
+  width: 25px;
+  border-radius: 2px solid;
+}
+/*# sourceMappingURL=cart.component.css.map */

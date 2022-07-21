@@ -28,16 +28,26 @@
   }
   &__product-content {
     display: flex;
-    min-width: 400px;
+    min-width: 600px;
     justify-content: space-between;
   }
   &__product-name {
     font-family: "Inter";
     font-style: normal;
-    font-weight: 300;
-    font-size: 14px;
+    font-weight:600;
+    font-size: 20px;
     line-height: 17px;
     color: #000000;
+    width: 200px;
+  }
+  &__product-price {
+    font-family: "Inter";
+    font-style: normal;
+    font-weight:600;
+    font-size: 20px;
+    line-height: 17px;
+    color: #000000;
+    width: 50px;
   }
   &__product-count {
     font-family: "Inter";
