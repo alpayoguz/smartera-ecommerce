@@ -1,3 +1,4 @@
+import { Badge, BadgeModule } from 'primeng/badge';
 import { RouterModule } from '@angular/router';
 import { ProductsListService } from './products-list/products-list.service';
 import { NgModule } from '@angular/core';
@@ -14,11 +15,14 @@ import { HttpClientModule } from '@angular/common/http';
 import { SafePipePipe } from './safe-pipe.pipe';
 import { ProductDetailsComponent } from './product-details/product-details.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { CartComponent } from './cart/cart.component';
+
 const appRoute : Routes = [
   {path:"", redirectTo:"products-list", pathMatch:"full"},
   {path:"products-list", component:ProductsListComponent},
   {path:"product-details", component:ProductDetailsComponent},
   {path:"product-details/:productId/info", component:ProductDetailsComponent},
+  {path:"cart", component:CartComponent},
   {path:"**", component:PageNotFoundComponent}
   // should be always last path on the configuration
 ]
@@ -32,7 +36,8 @@ const appRoute : Routes = [
     ProductsComponent,
     SafePipePipe,
     ProductDetailsComponent,
-    PageNotFoundComponent,  
+    PageNotFoundComponent,
+    CartComponent,  
   ],
   imports: [
     BrowserModule,
@@ -40,7 +45,8 @@ const appRoute : Routes = [
     HttpClientModule,
     AppRoutingModule,
     FontAwesomeModule,
-    CardModule
+    CardModule,
+    BadgeModule
     
   ],
   providers: [ProductsListService],

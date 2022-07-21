@@ -1,0 +1,64 @@
+.cart {
+  display: flex;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+  &__container {
+    width: 80%;
+  }
+  &__header {
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24px;
+    text-align: center;
+    color: #000000;
+  }
+  &__products {
+    display: flex;
+    flex-direction: column;
+    row-gap: 15px;
+  }
+  &__product {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #BFBFBF;
+    padding: 25px;
+  }
+  &__product-content {
+    display: flex;
+    min-width: 400px;
+    justify-content: space-between;
+  }
+  &__product-name {
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 17px;
+    color: #000000;
+  }
+  &__product-count {
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 17px;
+    background: #BFBFBF;
+    border-radius: 1px;
+    color: #000000;
+    text-align: center;
+    margin: 3px 0px;
+  }
+  &__image {
+    width: 200px;
+    height: 200px;
+    border-radius: 10px;
+  }
+  &__button{
+    cursor: pointer;
+    width: 25px;
+    border-radius: 2px solid;
+  }
+}

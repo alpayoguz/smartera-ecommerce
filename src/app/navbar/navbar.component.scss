@@ -18,8 +18,19 @@
       color: blue;
     }
   }
-  &__cart {
+  &__cart{
+    position: relative;
+  }
+  &__cart-icon {
     color: blue;
     cursor: pointer;
+  }
+  &__badge{
+    position: absolute;
+    background-color: red;
+    color: white;
+    padding: 3px 5px;
+    text-align: center;
+    border-radius: 5px;
   }
 }

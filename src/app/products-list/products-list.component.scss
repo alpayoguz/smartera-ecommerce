@@ -35,6 +35,8 @@
   transition-timing-function: ease-in-out;
   transition-property: all;
   & > a {
+    // pointer-events: none;
+    // cursor: default;
     text-decoration: none;
   }
   &:hover {
