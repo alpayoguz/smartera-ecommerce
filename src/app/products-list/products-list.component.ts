@@ -26,14 +26,14 @@ export class ProductsListComponent implements OnInit {
    
   }
   ngOnInit(): void {
-    this._productsListService.getProductsData()
-    .subscribe(data => {
-      this.products = data
-    }, error => {
-      console.log(error)
-    },
-    () => console.log("Fetched completed")
-    )    
+      this._productsListService.getProductsData()
+      .subscribe(data => {
+        this.products = data
+      }, error => {
+        console.log(error)
+      },
+      () => console.log("Fetched completed")
+      )       
   }
 
   addToCart(event:any, product : any){

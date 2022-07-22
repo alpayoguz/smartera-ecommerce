@@ -24,7 +24,18 @@ export class CartService {
     
   }
   addToCart(product:any){
-    this.cartItemList.push(product);
+
+    const existingProduct = this.cartItemList.find((item:any) => item.id === product.id);
+    if(existingProduct){
+     this.cartItemList = this.cartItemList.map((item:any)=> {
+        if(item.id === existingProduct.id){
+          return {...item, quantity: item.quantity + 1}
+        }
+        return item
+      } )
+    }else{
+      this.cartItemList.push({...product, quantity:1});
+    }
     this.productList.next(this.cartItemList);
     this.getTotalPrice();
     console.log(this.cartItemList);
@@ -34,6 +45,31 @@ export class CartService {
   }
   removeAllCart(){
     this.cartItemList = [];
+    this.productList.next(this.cartItemList);
+  }
+  increaseQuantity(product: any){ // it will manage product quantity in cartItems
+    const existingItem = this.cartItemList.find((item:any) => item.id === product.id)
+    this.cartItemList = this.cartItemList.map((item:any) => {
+      if(existingItem.id === item.id){
+        return {...item, quantity: item.quantity + 1}
+      }
+      return item
+    })
+    this.productList.next(this.cartItemList);
+  }
+  decreaseQuantity(product:any){ // it will manage product quantity in cartItems
+   
+    if(product.quantity === 1){
+     this.cartItemList = this.cartItemList.filter((prdct:any) => prdct.id !== product.id )
+    }else{
+     const existingItem = this.cartItemList.find((item:any) => item.id === product.id)
+     this.cartItemList = this.cartItemList.map((item:any) => {
+      if(existingItem.id === item.id){
+        return {...item, quantity:item.quantity - 1}
+      }
+      return item
+     } )
+    }
     this.productList.next(this.cartItemList);
   }
 }

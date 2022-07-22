@@ -13,8 +13,17 @@ export class CartComponent implements OnInit {
   constructor(private cartService: CartService) { }
 
   ngOnInit(): void {
-    this.cartItems =  this.cartService.cartItemList
+    this.cartService.getProducts()
+    .subscribe((res)=>{
+      this.cartItems = res
+    })
+  }
+  increaseQuantity(product: any){ // it will manage product quantity in cartItems
+    this.cartService.increaseQuantity(product);
+  }
 
+  decreaseQuantity(product:any){ // it will manage product quantity in cartItems
+    this.cartService.decreaseQuantity(product);
   }
 
  
