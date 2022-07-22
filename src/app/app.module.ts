@@ -23,6 +23,7 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
 
 const appRoute : Routes = [
   {path:"", redirectTo:"login", pathMatch:"full"},
+  {path:"dashboard", component:DashboardComponent},
   {path:"products-list", component:ProductsListComponent},
   {path:"login", component:LoginComponent},
   {path:"product-details", component:ProductDetailsComponent},
