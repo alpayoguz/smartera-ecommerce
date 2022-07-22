@@ -16,10 +16,15 @@ import { SafePipePipe } from './safe-pipe.pipe';
 import { ProductDetailsComponent } from './product-details/product-details.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { CartComponent } from './cart/cart.component';
+import { LoginComponent } from './pages/login/login.component';
+import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
+import { DashboardComponent } from './pages/dashboard/dashboard.component';
 
 const appRoute : Routes = [
-  {path:"", redirectTo:"products-list", pathMatch:"full"},
+  {path:"", redirectTo:"login", pathMatch:"full"},
   {path:"products-list", component:ProductsListComponent},
+  {path:"login", component:LoginComponent},
   {path:"product-details", component:ProductDetailsComponent},
   {path:"product-details/:productId/info", component:ProductDetailsComponent},
   {path:"cart", component:CartComponent},
@@ -37,7 +42,10 @@ const appRoute : Routes = [
     SafePipePipe,
     ProductDetailsComponent,
     PageNotFoundComponent,
-    CartComponent,  
+    CartComponent,
+    LoginComponent,
+    DashboardComponent,  
+   
   ],
   imports: [
     BrowserModule,
@@ -46,7 +54,9 @@ const appRoute : Routes = [
     AppRoutingModule,
     FontAwesomeModule,
     CardModule,
-    BadgeModule
+    BadgeModule,
+    FormsModule,
+    ReactiveFormsModule
     
   ],
   providers: [ProductsListService],
