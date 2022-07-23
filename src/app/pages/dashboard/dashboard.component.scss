@@ -1,0 +1,41 @@
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.dashboard {
+  width: 100%;
+  padding: 50px 0;
+  // display: flex;
+  // align-items: center;
+  // justify-content: center;
+  &__content {
+    width: 80%;
+    margin: auto;
+  }
+  &__header {
+    font-size: 35px;
+  }
+  &__charts {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    width: 80%;
+    margin: auto;
+  }
+  &__image{
+    width: 300px;
+    height:300px;
+  }
+  &__bestseller{
+    padding-top: 25px;
+    text-align: center;
+  }
+  &__bestseller-header{
+    font-size: 25px;
+    font-weight: 500;
+  }
+  &__product-name{
+    font-size: 18px;
+  }
+}

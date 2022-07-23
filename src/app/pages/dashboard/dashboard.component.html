@@ -1,1 +1,22 @@
-<p>dashboard works!</p>
+<app-navbar></app-navbar>
+<div class="dashboard">
+    <div class="dashboard__content">
+        <h3 class="dashboard__header">Dashboard</h3>
+        <div class="dashboard__charts">
+            <app-info-card *ngFor="let cardInfo of cardInfos"
+            [value] = "cardInfo.value"[title] = "cardInfo.title" [isPrice] = "cardInfo.isPrice"
+            >
+            </app-info-card>
+        </div>
+        <div class="dashboard__bestseller">
+            <p class="dashboard__bestseller-header">Today's Bestseller!</p>
+            <p class="dashboard__product-name">
+                {{todayBestSeller.title}}
+            </p>
+            <img class="dashboard__image" [src]="todayBestSeller.image" alt="">
+
+
+           </div>
+            
+    </div>
+</div>

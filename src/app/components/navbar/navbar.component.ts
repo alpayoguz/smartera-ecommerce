@@ -1,4 +1,4 @@
-import { CartService } from './../cart/cart.service';
+import { CartService } from '../../pages/cart/cart.service';
 import { Component, OnInit } from '@angular/core';
 import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
 import { Router } from '@angular/router';
@@ -24,10 +24,10 @@ export class NavbarComponent implements OnInit {
     } )
   }
   goToCart(){
-    this.router.navigate(["/cart"]);
+    this.router.navigate(["cart"]);
   }
   goToHome(){
-    this.router.navigate(["/"])
+    this.router.navigate(["products-list"])
   }
 
 }

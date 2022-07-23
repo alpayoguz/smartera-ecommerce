@@ -1,4 +1,4 @@
-import { CartService } from './../cart/cart.service';
+import { CartService } from '../cart/cart.service';
 import { ProductService } from '../product-details/product.service';
 import { ProductsListService } from './products-list.service';
 import { Component, OnInit } from '@angular/core';
@@ -10,7 +10,8 @@ export interface IProduct{
   price:number,
   description:string,
   image: string,
-  images:string []
+  category:string,
+  rating:{count:number, rate:number}
 }
 
 @Component({

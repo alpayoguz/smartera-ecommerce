@@ -1,0 +1,37 @@
+.info-card {
+    width: 175px;
+    height: 200px;
+    padding: 15px 0px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+   justify-content: space-between;
+    background: #5454e7;
+    backdrop-filter:blur(80px);
+    border-radius: 8px;
+    &__header {
+      font-family: "Inter";
+      font-style: normal;
+      font-weight: 700;
+      font-size: 20px;
+      line-height: 25px;
+      opacity: 90%;
+      color: white;
+      text-align: center;
+    }
+    &__info {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: "Inter";
+      color: black;
+      background: #fbfbfb;
+      border-radius: 8px;
+      width: 80%;
+      height: 40%;
+      text-align: center;
+      font-weight: 800;
+      letter-spacing: 1.5px;
+    }
+  }
+  
