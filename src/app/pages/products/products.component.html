@@ -1,12 +1,11 @@
+<app-navbar></app-navbar>
 <div class="table">
     <div class="table__header">
         PRODUCTS
     </div>
-    <div (click)="yazdir()" class="px-15">
-        <span class="table__add-button button-slanted-content" type="button">Add Product</span>
-    </div>
+
     <div class="modal" [ngClass]="isModalActive ? 'setFlex' : '' ">
-        <div class="modal__content" >
+        <div class="modal__content">
             <div class="modal__top">
                 <div class="modal__header">
                     Warning!
@@ -16,48 +15,109 @@
                 </div>
             </div>
             <div class="modal__bottom">
-                <button  (click)="removeProduct()" type="button" class="modal__confirm">
+                <button (click)="removeProduct()" type="button" class="modal__confirm">
                     <fa-icon class="confirm__icon" [icon]="faCheck"></fa-icon>
-                </button  >
-                <button (click)="setModalStatus()"  type="button"  class="modal__reject">
+                </button>
+                <button (click)="setModalStatus()" type="button" class="modal__reject">
                     <fa-icon class="refuse__icon" [icon]="faTimes"></fa-icon>
                 </button>
             </div>
         </div>
-  
+
+
+    </div>
+    <div class="create">
+        <div class="create__content">
+            <div>
+                <label for="name">Name</label>
+                <input type="text" id="name">
+            </div>
+            <div>
+                <label for="category">Selec</label>
+            </div>
+
+        </div>
 
     </div>
 
-    <table class="table__content">
-        <thead>
+    <div>
+        <table class="table__content">
+            <tr class="product__row">
+                <td class="add__product">
+                    Add Product
+                </td>
+                <td>
+
+                </td>
+                <td>
+
+                </td>
+                <td>
+
+                </td>
+                <td>
+
+                </td>
+                <td>
+
+                </td>
+            </tr>
             <tr class="table__row">
-                <th>Id</th>
-                <th>Name</th>
+                <th>
+                    id
+                </th>
+                <th>
+                    Name
+                </th>
                 <th>Category</th>
                 <th>Price</th>
                 <th>Stock</th>
-                <th></th>
+                <th>
+                </th>
             </tr>
             <tr *ngFor="let product of products" class="table__row">
-                <td>{{product.id}}</td>
                 <td>
-                  <div style="height: 20px; width:50px; overflow:hidden;">
-                    {{product.title}}
-                  </div>
+
+                    {{product.id}}
+
                 </td>
-                <td>{{product.category}}</td>
-                <td>${{product.price}}</td>
-                <td>{{product.rating.count}}</td>
+                <td>
+                    <div class="table__row-name">
+                        {{product.title}}
+                    </div>
+
+
+                </td>
+                <td>
+
+                    {{product.category}}
+
+                </td>
+                <td>
+
+                    ${{product.price}}
+
+
+                </td>
+                <td>
+
+                    {{product.rating.count}}
+
+                </td>
+
                 <td class="table__button">
                     <fa-icon (click)="setModalStatus(product.id)" class="red" [icon]="faTrash"></fa-icon>
                 </td>
             </tr>
 
 
-        </thead>
-        <tbody>
 
-        </tbody>
-    </table>
+
+
+
+        </table>
+    </div>
+
+
 
 </div>

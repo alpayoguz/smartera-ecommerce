@@ -27,10 +27,10 @@ export class ProductsComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.pLService.getProductsData().subscribe((res) => {
-      this.products = res;
-      console.log(this.products);
-    });
+    // this.pLService.getProductsData().subscribe((res) => {
+    //   this.products = res;
+    //   console.log(this.products);
+    // });
   }
 
 

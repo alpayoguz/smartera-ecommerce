@@ -2,8 +2,8 @@
   &__header {
     color: blue;
     padding: 20px;
-    font-size: 15px;
-    font-weight: 400;
+    font-size: 20px;
+    font-weight: 800;
     font-style: normal;
     font-family: "Roboto";
     text-shadow: -1px -1px 1px rgba(0, 0, 0, 0.1);
@@ -12,18 +12,24 @@
   }
   &__content {
     table-layout: fixed;
+    width: 250px;
     max-width: 90%;
     margin: auto;
   }
+  &__row-name {
+    width: 80%;
+    margin: auto;
+    overflow: hidden;
+  }
   &__add-button {
-    width: 80px;
-    height: 20px;
-    font-size: 10px;
-    padding: 0;
+    // width: 80px;
+    // height: 20px;
+    // font-size: 10px;
+    // padding: 0;
     -ms-transform: skewX(20deg);
     -webkit-transform: skewX(20deg);
     transform: skewX(20deg);
-    display: inline-block;
+    // display: inline-block;
     cursor: pointer;
     &:active {
       transform: scale(0.98);
@@ -38,17 +44,19 @@ th {
   border-right: 1px solid #343a45;
   font-size: 12px;
   font-weight: 100;
-  min-width: 35px;
-  max-width: 50px;
+  width: 100px;
   text-align: center;
   text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
   vertical-align: middle;
+  table-layout: fixed;
+  overflow: hidden;
   &:first-child {
     border-top-left-radius: 3px;
   }
 
   &:last-child {
-    opacity: 0;
+   opacity: 0;
+
   }
 }
 tr {
@@ -66,11 +74,13 @@ tr {
   &:nth-child(odd) td {
     background: #ebebeb;
   }
-  &:nth-child(odd):hover td {
+  &:not(:first-of-type):nth-child(odd):hover td {
     background: #4e5066;
   }
 }
 td {
+  width: 100px;
+  table-layout: fixed;
   background: #ffffff;
   padding: 2px;
   text-align: center;
@@ -79,50 +89,33 @@ td {
   font-size: 8px;
   text-shadow: -1px -1px 1px rgba(0, 0, 0, 0.1);
   border-right: 1px solid #c1c3d1;
+  overflow: hidden;
   &:last-child {
     border-right: 0px;
   }
 }
-
 .red {
   color: red;
   cursor: pointer;
 }
-.px-15 {
-  padding-left: 10px;
-  padding-right: 10px;
-  color: white;
-  background-color: rgba(56, 153, 35, 1);
-  text-align: center;
-  margin: 10px;
-  display: inline-block;
-  -ms-transform: skewX(-20deg);
-  -webkit-transform: skewX(-20deg);
-  transform: skewX(-20deg);
-  &::before {
-    transform: skew(-15deg);
-  }
-}
-
-.modal{
-    background-color: rgba(0, 0, 0, 0.35);
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 100vh;
-    width: 100vw;
-    align-items: center;
-    justify-content: center;
-    display: flex;
-    opacity: 0;
-    pointer-events: none;
+.modal {
+  background-color: rgba(0, 0, 0, 0.35);
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  opacity: 0;
+  pointer-events: none;
 
   &__content {
     background-color: white;
     width: 500px;
     max-width: 90%;
     height: 120px;
-
   }
   &__header {
     font-family: "Poppins";
@@ -160,9 +153,25 @@ td {
     background-color: red;
     border-radius: 2px;
     cursor: pointer;
-
   }
 }
+
+
+tr:first-child td {
+  background-color: white ;
+  border: none;
+}
+tr:first-child td:first-child{
+  cursor: pointer;
+  background-color: green !important;
+  color: white;
+  border: 2px solid black;
+}
+
+
+
+
+
 
 .confirm__icon {
   color: white;
@@ -170,11 +179,168 @@ td {
 .refuse__icon {
   color: white;
 }
-body{
+body {
   background-color: rgb(0, 0, 0);
   background-color: rgba(0, 0, 0, 0.4);
 }
-.setFlex{
+.setFlex {
   opacity: 1;
   pointer-events: all;
+}
+
+// MEDIQ QUERIES
+@media (min-width: 1200.2px) {
+  .table__content {
+    width: 1100px;
+  }
+  .table__header{
+    font-size: 30px;
+    text-align: center;
+    padding-bottom: 20px;
+  }
+  th {
+    max-width: 80px;
+
+    font-size: 22px;
+    max-height: 30px;
+    min-height: 30px;
+  }
+  td {
+    max-width: 80px;
+    font-size: 20px;
+    max-height: 30px;
+    min-height: 30px;
+  }
+  .table__row-name {
+    height: 50px;
+    overflow: hidden;
+  }
+}
+@media (max-width: 1200px) {
+  .table__content {
+    width: 1100px;
+  }
+  .table__header{
+    font-size: 28px;
+    text-align: center;
+
+  }
+  th {
+    max-width: 80px;
+
+    font-size: 22px;
+    max-height: 30px;
+    min-height: 30px;
+  }
+  td {
+    max-width: 80px;
+    font-size: 20px;
+    max-height: 30px;
+    min-height: 30px;
+  }
+  .table__row-name {
+    height: 50px;
+    // width: 50px;
+    // margin: auto;
+    overflow: hidden;
+  }
+}
+@media (max-width: 1024px) {
+  .table__content {
+    width: 950px;
+  }
+  .table__header{
+    font-size: 28px;
+    padding-left: 20px;
+  }
+  th {
+    max-width: 80px;
+
+    font-size: 18px;
+    max-height: 30px;
+    min-height: 30px;
+  }
+  td {
+    max-width: 80px;
+    font-size: 13px;
+    max-height: 30px;
+    min-height: 30px;
+  }
+  .table__row-name {
+    height: 50px;
+    // width: 50px;
+    // margin: auto;
+    overflow: hidden;
+  }
+}
+@media (max-width: 720px) {
+  .table__content {
+    width: 600px;
+  }
+  .table__header{
+    font-size: 25px;
+    padding-left: 15px;
+  }
+  th {
+    max-width: 30px;
+    font-size: 12px;
+  }
+  td {
+    max-width: 30px;
+    font-size: 9px;
+  }
+  .table__row-name {
+    height: 20px;
+    width: 50px;
+    // margin: auto;
+    overflow: hidden;
+  }
+}
+@media (max-width: 560px) {
+  .table__header{
+    font-size: 20px;
+  }
+  .table__content {
+    width: 600px;
+  }
+  th {
+    max-width: 30px;
+    font-size: 12px;
+  }
+  td {
+    max-width: 30px;
+    font-size: 9px;
+  }
+
+  .table__row-name {
+    height: 20px;
+    width: 100%;
+    // margin: auto;
+    overflow: hidden;
+  }
+}
+
+@media (max-width: 360px) {
+  .table__content {
+    width: 260px;
+  }
+  th {
+    max-width: 30px;
+    height: 20px;
+    font-size: 12px;
+  }
+  td {
+    max-width: 30px;
+    height: 20px;
+    font-size: 9px;
+  }
+  .table__header {
+    max-width: 90%;
+    margin: 0 auto;
+  }
+  .button_slanted-container {
+    width: 75%;
+    margin: auto;
+    padding: 5px;
+  }
 }
