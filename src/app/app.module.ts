@@ -21,6 +21,9 @@ import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { InfoCardComponent } from './components/info-card/info-card.component';
+import {ConfirmDialogModule} from 'primeng/confirmdialog';
+import {ConfirmationService} from 'primeng/api';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 const appRoute : Routes = [
   {path:"", redirectTo:"login", pathMatch:"full"},
@@ -59,10 +62,13 @@ const appRoute : Routes = [
     CardModule,
     BadgeModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ConfirmDialogModule,
+    BrowserAnimationsModule
+    
     
   ],
-  providers: [ProductsListService],
+  providers: [ProductsListService, ConfirmationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
