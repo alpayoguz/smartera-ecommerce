@@ -5,7 +5,7 @@ import { BehaviorSubject } from 'rxjs';
   providedIn: 'root'
 })
 export class CartService {
-
+  
    cartItemList : any =  []
    productList = new BehaviorSubject([])
   
@@ -24,7 +24,6 @@ export class CartService {
     
   }
   addToCart(product:any){
-
     const existingProduct = this.cartItemList.find((item:any) => item.id === product.id);
     if(existingProduct){
      this.cartItemList = this.cartItemList.map((item:any)=> {
@@ -38,7 +37,6 @@ export class CartService {
     }
     this.productList.next(this.cartItemList);
     this.getTotalPrice();
-    console.log(this.cartItemList);
   }
   removeCartItem(product: any){
    this.cartItemList = this.cartItemList.filter((prdct:any) => prdct.id !== product.id)

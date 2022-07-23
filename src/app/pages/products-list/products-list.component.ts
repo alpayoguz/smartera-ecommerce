@@ -23,7 +23,8 @@ export class ProductsListComponent implements OnInit {
 
   products:IProduct[] = []
 
-  constructor(private router:Router,private _productsListService:ProductsListService, private productService: ProductService, private cartService : CartService) { 
+  constructor(private router:Router,private _productsListService:ProductsListService, private productService: ProductService, private cartService : CartService, private cartService2: CartService) {
+
    
   }
   ngOnInit(): void {
@@ -40,10 +41,6 @@ export class ProductsListComponent implements OnInit {
   addToCart(event:any, product : any){
     event.stopPropagation(); 
     this.cartService.addToCart(product);
-    // console.log(this.cartService.cartItemList);
-    // console.log(this);
-    // console.log(this.cartService);
-
   }
   goToProductDetails(id:number){
     this.router.navigate([`/product-details/${id}/info`])

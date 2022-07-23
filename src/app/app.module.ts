@@ -24,9 +24,10 @@ import { InfoCardComponent } from './components/info-card/info-card.component';
 
 const appRoute : Routes = [
   {path:"", redirectTo:"login", pathMatch:"full"},
+  {path:"login", component:LoginComponent},
   {path:"dashboard", component:DashboardComponent},
   {path:"products-list", component:ProductsListComponent},
-  {path:"login", component:LoginComponent},
+  {path:"products", component:ProductsComponent},
   {path:"product-details", component:ProductDetailsComponent},
   {path:"product-details/:productId/info", component:ProductDetailsComponent},
   {path:"cart", component:CartComponent},
