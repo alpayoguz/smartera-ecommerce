@@ -26,17 +26,43 @@
 
 
     </div>
-    <div class="create">
-        <div class="create__content">
+    <div class="product-form">
+        <form class="product-form__content">
+            <div class="product-form__header">
+                Product Details
+            </div>
             <div>
                 <label for="name">Name</label>
                 <input type="text" id="name">
             </div>
             <div>
-                <label for="category">Selec</label>
+                <label for="category">Category</label>
+                <select name="category" id="category">
+                    <option value="men">men's clothing</option>
+                    <option value="jewelery">jewelery</option>
+                    <option value="electronic">electronics</option>
+                    <option value="women">women's clothing</option>
+                </select>
             </div>
+            <div>
+                <label for="price">Price</label>
+                <input type="number" id="price"/>
+            </div>
+            <div>
+                <label for="description">Description</label>
+                <input type="text" name="description" id="description">
+            </div>
+            <div>
+                <label for="stock">Stock</label>
+                <input type="number" name="stock" id="stock">
+            </div>
+            <div>
+                <button class="product-form__button" type="button">Create</button>
+            </div>
+           
 
-        </div>
+
+        </form>
 
     </div>
 
