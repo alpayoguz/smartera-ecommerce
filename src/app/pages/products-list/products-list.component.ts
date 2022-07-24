@@ -12,7 +12,9 @@ export interface IProduct{
   image: string,
   category:string,
   rating:{count:number, rate:number},
-  stock:number
+  stock:number,
+  valid:true,
+  editFieldName:string
 }
 
 @Component({
