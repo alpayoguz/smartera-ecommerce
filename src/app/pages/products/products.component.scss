@@ -164,6 +164,8 @@ td {
   position: fixed;
   top: 0;
   right: 0;
+  opacity: 0;
+  pointer-events: none;
   &__header {
     font-weight: 700;
     display: block !important;
@@ -230,10 +232,14 @@ body {
   background-color: rgb(0, 0, 0);
   background-color: rgba(0, 0, 0, 0.4);
 }
-.setFlex {
+.setElementVisible {
   opacity: 1;
   pointer-events: all;
 }
+// .setFormVisible {
+//   opacity: 1;
+//   pointer-events: all;
+// }
 
 // MEDIQ QUERIES
 @media (min-width: 1200.2px) {
@@ -289,6 +295,9 @@ body {
     // width: 50px;
     // margin: auto;
     overflow: hidden;
+  }
+  .product-form__content div:not(:first-child){
+    width: 50%;
   }
 }
 @media (max-width: 1024px) {
@@ -389,4 +398,12 @@ body {
     margin: auto;
     padding: 5px;
   }
+}
+
+// CREATED CLASSES
+.c-pointer{
+  cursor: pointer;
+}
+.justify-end{
+ justify-content: flex-end !important;
 }

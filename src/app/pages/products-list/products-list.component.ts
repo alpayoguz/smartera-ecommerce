@@ -11,7 +11,8 @@ export interface IProduct{
   description:string,
   image: string,
   category:string,
-  rating:{count:number, rate:number}
+  rating:{count:number, rate:number},
+  stock:number
 }
 
 @Component({
