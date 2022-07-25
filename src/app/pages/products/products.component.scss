@@ -236,10 +236,29 @@ body {
   opacity: 1;
   pointer-events: all;
 }
-// .setFormVisible {
-//   opacity: 1;
-//   pointer-events: all;
-// }
+// GLOBAL ELEMENTS
+
+input{
+  text-align: center;
+  width: 80%;
+  height: 70%;
+  border: 2px solid orange;
+  outline: none;
+}
+
+
+// CREATED CLASSES
+.c-pointer{
+cursor: pointer;
+}
+.justify-end{
+justify-content: flex-end !important;
+}
+.invalid{
+background-color: lightgreen;
+cursor: default;
+}
+
 
 // MEDIQ QUERIES
 @media (min-width: 1200.2px) {
@@ -438,27 +457,5 @@ body {
   }
 }
 
-// GLOBAL ELEMENTS
-
-input{
-    text-align: center;
-    width: 80%;
-    height: 70%;
-    border: 2px solid orange;
-    outline: none;
-  }
-
-
-// CREATED CLASSES
-.c-pointer{
-  cursor: pointer;
-}
-.justify-end{
- justify-content: flex-end !important;
-}
-.invalid{
-  background-color: lightgreen;
-  cursor: default;
-}
 
 

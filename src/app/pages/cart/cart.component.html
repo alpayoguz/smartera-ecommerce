@@ -1,10 +1,10 @@
-<ng-container>
+    <ng-container>
     <app-navbar></app-navbar>
     <div class="cart">
         <div class="cart__container">
           
 
-            <p class="cart__header">
+            <p *ngIf="cartItems.length !== 0" class="cart__header">
                 Order Previews
             </p>
             <div *ngIf="cartItems.length !== 0" class="cart__products">
@@ -24,19 +24,6 @@
                         <button (click)="decreaseQuantity(item)" class="cart__button" type="button">-</button>
                     </div>
                 </div>
-                <!-- <div class="cart__product">
-                    <div class="cart__product-content">
-                        <img class="cart__image" src="https://picsum.photos/200/300" alt="">
-                        <p class="cart__product-name">Apple</p>
-                    </div>
-                    <div class="cart__buttons">
-                        <button class="cart__button" type="button">+</button>
-                        <p class="cart__product-count">
-                            5
-                        </p>
-                        <button  class="cart__button" type="button">-</button>
-                    </div>
-                </div> -->
             </div>
             <div *ngIf="cartItems.length === 0" class="empty-cart">
 

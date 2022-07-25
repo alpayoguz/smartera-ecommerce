@@ -1,6 +1,6 @@
 import { CartService } from '../../pages/cart/cart.service';
 import { Component, OnInit } from '@angular/core';
-import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
+import { faCartShopping, faBars } from '@fortawesome/free-solid-svg-icons';
 import { Router } from '@angular/router';
 
 
@@ -15,6 +15,8 @@ export class NavbarComponent implements OnInit {
 
   totalProductNumber = 0;
   faCartShopping = faCartShopping;
+  faBars = faBars;
+  isExpanded = false
   constructor(private router:Router,private cartService: CartService) { }
 
   ngOnInit(): void {
@@ -23,11 +25,12 @@ export class NavbarComponent implements OnInit {
       this.totalProductNumber = res.length
     } )
   }
-  goToCart(){
-    this.router.navigate(["cart"]);
+  goToUrl(url:string){
+    this.router.navigate([`${url}`]);
   }
-  goToHome(){
-    this.router.navigate(["products-list"])
+  expandNavItems(){
+    this.isExpanded = !this.isExpanded
   }
 
 }
+

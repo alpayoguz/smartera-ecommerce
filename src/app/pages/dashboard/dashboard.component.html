@@ -3,9 +3,8 @@
     <div class="dashboard__content">
         <h3 class="dashboard__header">Dashboard</h3>
         <div class="dashboard__charts">
-            <app-info-card *ngFor="let cardInfo of cardInfos"
-            [value] = "cardInfo.value"[title] = "cardInfo.title" [isPrice] = "cardInfo.isPrice"
-            >
+            <app-info-card *ngFor="let cardInfo of cardInfos" [value]="cardInfo.value" [title]="cardInfo.title"
+                [isPrice]="cardInfo.isPrice">
             </app-info-card>
         </div>
         <div class="dashboard__bestseller">
@@ -13,10 +12,13 @@
             <p class="dashboard__product-name">
                 {{todayBestSeller.title}}
             </p>
-            <img class="dashboard__image" [src]="todayBestSeller.image" alt="">
+            <div class="dashboard__bottom">
+                <img class="dashboard__image" [src]="todayBestSeller.image" alt="">
+                <button class="dashboard__buy-btn">BUY NOW!</button>
+            </div>
 
 
-           </div>
-            
+        </div>
+
     </div>
 </div>
