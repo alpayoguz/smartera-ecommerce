@@ -1,3 +1,5 @@
+import { ProductFormComponent } from './components/product-form/product-form.component';
+import { CheckboxComponent } from './components/checkbox/checkbox.component';
 import { Badge, BadgeModule } from 'primeng/badge';
 import { RouterModule } from '@angular/router';
 import { ProductsListService } from './pages/products-list/products-list.service';
@@ -25,9 +27,6 @@ import {ConfirmDialogModule} from 'primeng/confirmdialog';
 import {ConfirmationService} from 'primeng/api';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {DialogModule} from 'primeng/dialog';
-import { CheckboxComponent } from './components/checkbox/checkbox.component';
-import { ProductFormComponent } from './components/product-form/product-form.component';
-
 const appRoute : Routes = [
   {path:"", redirectTo:"login", pathMatch:"full"},
   {path:"login", component:LoginComponent},
