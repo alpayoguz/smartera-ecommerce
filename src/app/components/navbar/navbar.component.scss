@@ -73,6 +73,9 @@
     border-radius: 5px;
     font-size: 11px;
   }
+  &__hamburger-container{
+    display: none;
+  }
   &__hamburger {
     display: none;
   }
@@ -104,9 +107,13 @@
     &__content {
       min-height: 55px;
     }
-
-    &__hamburger{
+   
+    &__hamburger-container{
       display: block;
+    }
+    &__hamburger{
+      display: flex;
+      column-gap:25px ;
       cursor: pointer;
       -webkit-transition: 1s ease-in-out;
       -moz-transition: 1s ease-in-out;

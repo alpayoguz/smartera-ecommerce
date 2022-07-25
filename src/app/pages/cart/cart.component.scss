@@ -5,7 +5,6 @@
   justify-content: center;
   &__container {
     width: 80%;
-    
     display: flex;
     flex-direction: column;
   }
@@ -28,7 +27,7 @@
   &__product {
     display: flex;
     justify-content: space-between;
-    border-bottom: 1px solid #BFBFBF;
+    border-bottom: 1px solid #bfbfbf;
     padding: 25px;
   }
   &__product-content {
@@ -39,7 +38,7 @@
   &__product-name {
     font-family: "Inter";
     font-style: normal;
-    font-weight:600;
+    font-weight: 600;
     font-size: 20px;
     line-height: 17px;
     color: #000000;
@@ -48,7 +47,7 @@
   &__product-price {
     font-family: "Inter";
     font-style: normal;
-    font-weight:600;
+    font-weight: 600;
     font-size: 20px;
     line-height: 17px;
     color: #000000;
@@ -74,23 +73,23 @@
     height: 200px;
     border-radius: 10px;
   }
-  &__button{
+  &__button {
     cursor: pointer;
     width: 25px;
     padding: 3px 7px;
     background: orange;
     border-radius: 3px;
-    &:hover{
+    &:hover {
       background-color: white;
     }
-    
   }
 }
 
+// DESIGN FOR EMPTY CART
 .empty-cart {
   margin: 0 auto;
   text-align: center;
-  font-family: 'Maison Neue';
+  font-family: "Maison Neue";
   font-weight: 300;
 }
 svg {
@@ -256,10 +255,269 @@ body {
     opacity: 0;
   }
 }
-.cart__svg{
+.cart__svg {
   width: 70%;
   height: 250px;
 }
 
+// MEDIA QUERIES
+@media(min-width:1200.2px){
+  .cart {
+    min-height: 40px;
+    &__header {
+      font-size: 25px;
+      padding: 35px 0px;
+    }
+    &__container {
+      width: 100%;
+      row-gap: 40px;
+    }
+    &__product {
+      width: 90%;
+      padding: 7px 7px;
+      flex-direction: column;
+      align-items: flex-end;
+      box-sizing: border-box;
+      padding: 10px 25px;
+      justify-content: space-between;
+    }
+    &__product-content {
+      min-width: 100%;
+      max-width: 100%;
+      height: 100%;
+      align-items: center;
+      column-gap: 15px;
+      text-align: center;
+      justify-content: space-around;
 
+    }
+  }
+  
+}
+@media (max-width: 1200px) and (min-width: 720px) {
+  .cart {
+    min-height: 40px;
+    &__header {
+      font-size: 25px;
+      padding: 35px 0px;
+    }
+    &__container {
+      width: 100%;
+      row-gap: 40px;
+    }
+    &__product {
+      width: 90%;
+      padding: 7px 7px;
+      flex-direction: column;
+      align-items: flex-end;
+      box-sizing: border-box;
+      padding: 10px 25px;
+    }
+    &__product-content {
+      min-width: 100%;
+      max-width: 100%;
+      height: 100%;
+      align-items: center;
+      column-gap: 15px;
+      text-align: center;
+    }
+    &__product-name {
+      font-size: 20px;
+      max-width: 30%;
+      max-height: 50px;
+      overflow: hidden;
+    }
+    &__product-price {
+      font-size: 18px;
+    }
+    &__product-count {
+      margin: 0;
+      padding: 0;
+      width: 22px;
+      height: 22px;
+      border: 1px;
+      font-size: 13px;
+      line-height: 22px;
+      text-align: center;
+    }
+    &__image {
+      max-width: 80px;
+      height: 80px;
+    }
 
+    &__buttons {
+      display: flex;
+      flex-direction: row;
+      column-gap: 5px;
+    }
+    &__button {
+      padding: 0px;
+      width: 22px;
+      height: 22px;
+      text-align: center;
+    }
+  }
+  .empty-cart {
+    min-height: 70vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    &__header {
+      font-size: 20px;
+    }
+  }
+}
+
+@media (max-width: 720px) {
+  .cart {
+    min-height: 40px;
+    &__header {
+      font-size: 25px;
+      padding: 35px 0px;
+    }
+    &__container {
+      width: 100%;
+      row-gap: 40px;
+    }
+    &__product {
+      width: 90%;
+      padding: 7px 7px;
+      flex-direction: column;
+      align-items: flex-end;
+      box-sizing: border-box;
+      padding: 10px 25px;
+    }
+    &__product-content {
+      min-width: 100%;
+      max-width: 100%;
+      height: 100%;
+      align-items: center;
+      column-gap: 15px;
+      text-align: center;
+    }
+    &__product-name {
+      font-size: 20px;
+      max-width: 30%;
+      max-height: 50px;
+      overflow: hidden;
+    }
+    &__product-price {
+      font-size: 18px;
+    }
+    &__product-count {
+      margin: 0;
+      padding: 0;
+      width: 22px;
+      height: 22px;
+      border: 1px;
+      font-size: 13px;
+      line-height: 22px;
+      text-align: center;
+    }
+    &__image {
+      max-width: 80px;
+      height: 80px;
+    }
+
+    &__buttons {
+      display: flex;
+      flex-direction: row;
+      column-gap: 5px;
+    }
+    &__button {
+      padding: 0px;
+      width: 22px;
+      height: 22px;
+      text-align: center;
+    }
+  }
+  .empty-cart {
+    min-height: 70vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    &__header {
+      font-size: 20px;
+    }
+  }
+}
+@media (max-width: 560px) and (min-width:360.2px) {
+  .cart {
+    &__product{
+      padding: 10px 10px;
+    }
+    &__product-name {
+      font-size: 10px;
+      max-width: 30%;
+    }
+    &__product-price {
+      font-size: 11px;
+      min-width: 40px;
+    }
+
+  }
+}
+@media (max-width: 360px) {
+  .cart {
+    min-height: 40px;
+    &__header {
+      font-size: 25px;
+      padding-top: 15px;
+      padding-bottom: 0;
+    }
+    &__container {
+      width: 100%;
+      row-gap: 40px;
+    }
+    &__product {
+      width: 100%;
+      padding: 7px 7px;
+      flex-direction: column;
+      align-items: flex-end;
+    }
+    &__product-content {
+      min-width: 100%;
+      max-width: 100%;
+      height: 100%;
+      align-items: center;
+      column-gap: 15px;
+      text-align: center;
+    }
+    &__product-name {
+      font-size: 11px;
+      max-width: 30%;
+    }
+    &__product-price {
+      font-size: 10px;
+      min-width: 35px;
+    }
+    &__product-count {
+      margin: 0;
+      padding: 0;
+      width: 15px;
+      height: 15px;
+      border: 1px;
+      font-size: 12px;
+      line-height: 15px;
+      text-align: center;
+    }
+    &__image {
+      max-width: 80px;
+      height: 80px;
+    }
+
+    &__buttons {
+      display: flex;
+      flex-direction: row;
+      column-gap: 1px;
+    }
+    &__button {
+      padding: 0px;
+      width: 15px;
+      height: 15px;
+      text-align: center;
+    }
+  }
+}

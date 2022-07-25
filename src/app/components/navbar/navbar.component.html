@@ -2,18 +2,29 @@
     <div class="navbar__content">
         <h3 (click)="goToUrl('products-list')" class="navbar__brand-name">SHOP<span>Y</span></h3>
         <ul [ngClass]="isExpanded ? 'active' : '' " class="navbar__links">
-            
+
             <li (click)="goToUrl('products')">Products</li>
             <li (click)="goToUrl('dashboard')">Dashboard</li>
             <li (click)="goToUrl('products-list')">Products List</li>
             <li (click)="goToUrl('cart')" class="navbar__cart">
-                <fa-icon (click)="goToUrl('cart')"  [icon]="faCartShopping" class="navbar__cart-icon fa-solid fa-cart-shopping fa-l"></fa-icon>
+                <fa-icon (click)="goToUrl('cart')" [icon]="faCartShopping"
+                    class="navbar__cart-icon fa-solid fa-cart-shopping fa-l"></fa-icon>
                 <span *ngIf="totalProductNumber" class="navbar__badge">{{totalProductNumber}}</span>
             </li>
         </ul>
-        <div class="navbar__hamburger" (click)="expandNavItems()">
-            <fa-icon [icon]="faBars"></fa-icon>
+
+        <div class="navbar__hamburger-container" >
+            <div class="navbar__hamburger" (click)="expandNavItems()">
+                <div *ngIf="!isExpanded" (click)="goToUrl('cart')" class="navbar__cart">
+                    <fa-icon (click)="goToUrl('cart')" [icon]="faCartShopping"
+                        class="navbar__cart-icon fa-solid fa-cart-shopping fa-l"></fa-icon>
+                    <span *ngIf="totalProductNumber" class="navbar__badge">{{totalProductNumber}}</span>
+                </div>
+                <fa-icon [icon]="faBars"></fa-icon>
+                
+            </div>
         </div>
-        
-       
-       </div>
+
+
+
+    </div>

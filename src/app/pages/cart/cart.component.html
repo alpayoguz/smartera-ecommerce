@@ -12,17 +12,24 @@
                     <div class="cart__product-content">
                         <img class="cart__image"  [src]="item.image | safePipe" alt="">
                         <p class="cart__product-name">{{item.title}}</p>
-                        <p class="cart__product-price">$ {{item.price}}</p>
+                        <p class="cart__product-price">$ {{item.price * item.quantity}}</p>
+                        <div class="cart__buttons">
+                            <button (click)="increaseQuantity(item)"  class="cart__button" type="button">+</button>
+                            <p class="cart__product-count">
+                                {{item.quantity}}
+                            </p>
+                            <button (click)="decreaseQuantity(item)" class="cart__button" type="button">-</button>
+                        </div>
 
                         
                     </div>
-                    <div class="cart__buttons">
+                    <!-- <div class="cart__buttons">
                         <button (click)="increaseQuantity(item)"  class="cart__button" type="button">+</button>
                         <p class="cart__product-count">
                             {{item.quantity}}
                         </p>
                         <button (click)="decreaseQuantity(item)" class="cart__button" type="button">-</button>
-                    </div>
+                    </div> -->
                 </div>
             </div>
             <div *ngIf="cartItems.length === 0" class="empty-cart">
@@ -78,7 +85,7 @@
                     <path d="M736,577 C737.65825,577 739,578.34175 739,580 C739,578.34175 740.34175,577 742,577 C740.34175,577 739,575.65825 739,574 C739,575.65825 737.65825,577 736,577 Z" id="bubble-rounded" stroke="#3CBC83" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" fill="none"></path>
                 </svg>
               
-                <h3>Cart is Empty</h3>
+                <h3 class="empty-cart__header">Cart is Empty</h3>
               </div>
         </div>
 

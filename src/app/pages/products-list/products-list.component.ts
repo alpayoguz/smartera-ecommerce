@@ -14,7 +14,8 @@ export interface IProduct{
   rating:{count:number, rate:number},
   stock:number,
   valid:true,
-  editFieldName:string
+  editFieldName:string,
+  quantity?:number
 }
 
 @Component({

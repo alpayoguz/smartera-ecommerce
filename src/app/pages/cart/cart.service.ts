@@ -1,3 +1,4 @@
+import { IProduct } from 'src/app/pages/products-list/products-list.component';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 
@@ -18,10 +19,13 @@ export class CartService {
     this.cartItemList.push(...product);
     this.productList.next(product);
   }
-  getTotalPrice(){
-    let totalPrice = 0;
-    this.cartItemList.map((a:any)=> totalPrice += a.total)
+  getTotalPriceOfCart(){
+   return this.cartItemList.map((prdct:IProduct) => prdct.quantity! * prdct.price)
     
+  }
+  
+  getTotalCartItems(){
+    // const allItemsQuanti
   }
   addToCart(product:any){
     const existingProduct = this.cartItemList.find((item:any) => item.id === product.id);
@@ -36,7 +40,7 @@ export class CartService {
       this.cartItemList.push({...product, quantity:1});
     }
     this.productList.next(this.cartItemList);
-    this.getTotalPrice();
+    // this.getTotalPrice();
   }
   removeCartItem(product: any){
    this.cartItemList = this.cartItemList.filter((prdct:any) => prdct.id !== product.id)

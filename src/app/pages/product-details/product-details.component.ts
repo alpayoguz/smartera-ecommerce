@@ -24,7 +24,5 @@ export class ProductDetailsComponent implements OnInit {
     console.log(typeof productIdFromRoute);
     this._productService.getSingleProductData(productIdFromRoute)
     .subscribe(data => this.product = data)
-
-    
   }
 }

@@ -1,3 +1,4 @@
+import { IProduct } from 'src/app/pages/products-list/products-list.component';
 import { CartService } from '../../pages/cart/cart.service';
 import { Component, OnInit } from '@angular/core';
 import { faCartShopping, faBars } from '@fortawesome/free-solid-svg-icons';
@@ -13,7 +14,7 @@ import { Router } from '@angular/router';
 })
 export class NavbarComponent implements OnInit {
 
-  totalProductNumber = 0;
+  totalProductNumber:number | undefined = 0;
   faCartShopping = faCartShopping;
   faBars = faBars;
   isExpanded = false
@@ -22,7 +23,7 @@ export class NavbarComponent implements OnInit {
   ngOnInit(): void {
     this.cartService.getProducts()
     .subscribe(res => {
-      this.totalProductNumber = res.length
+      this.totalProductNumber = this.getTotalCartItemsCount(res)
     } )
   }
   goToUrl(url:string){
@@ -30,6 +31,12 @@ export class NavbarComponent implements OnInit {
   }
   expandNavItems(){
     this.isExpanded = !this.isExpanded
+  }
+  //this will give total product number of cart (quantities included)
+  getTotalCartItemsCount(prdcts:IProduct[]){
+    const prdctQuantities = prdcts.map(prdct => prdct.quantity);
+    const totalQuantity = prdctQuantities.reduce((prevVal, curVal)=> prevVal! + curVal!, 0)
+    return totalQuantity
   }
 
 }
