@@ -1,0 +1,72 @@
+.product-form {
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 50;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  right: 0;
+  opacity: 0;
+  pointer-events: none;
+  &__header {
+    font-weight: 700;
+    display: block !important;
+    color: orange;
+
+    text-align: center;
+  }
+  &__content {
+    background-color: white;
+    width: 500px;
+    max-width: 80%;
+    min-height: 250px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    row-gap: 10px;
+    padding: 0px 8px;
+    -webkit-box-shadow: 11px 17px 12px 0px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 11px 17px 12px 0px rgba(0, 0, 0, 0.75);
+    box-shadow: 11px 17px 12px 0px rgba(0, 0, 0, 0.75);
+    border-radius: 3px;
+    & label {
+    }
+    & input {
+      width: 120px;
+    }
+    & div {
+      display: flex;
+      width: 100%;
+      justify-content: space-between;
+      &:last-child {
+        justify-content: end;
+      }
+    }
+  }
+  &__button {
+    background-color: greenyellow;
+    color: white;
+    padding: 7px;
+    border: none;
+    cursor: pointer;
+  }
+}
+
+.setElementVisible {
+  opacity: 1;
+  pointer-events: all;
+}
+.justify-end {
+  justify-content: flex-end !important;
+}
+.invalid {
+  background-color: lightgreen;
+  cursor: default;
+}
+.c-pointer {
+  cursor: pointer;
+}

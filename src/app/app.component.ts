@@ -1,5 +1,7 @@
 
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import {DialogModule} from 'primeng/dialog';
+
 
 
 @Component({

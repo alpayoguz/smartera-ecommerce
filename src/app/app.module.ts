@@ -24,6 +24,9 @@ import { InfoCardComponent } from './components/info-card/info-card.component';
 import {ConfirmDialogModule} from 'primeng/confirmdialog';
 import {ConfirmationService} from 'primeng/api';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {DialogModule} from 'primeng/dialog';
+import { CheckboxComponent } from './components/checkbox/checkbox.component';
+import { ProductFormComponent } from './components/product-form/product-form.component';
 
 const appRoute : Routes = [
   {path:"", redirectTo:"login", pathMatch:"full"},
@@ -51,7 +54,9 @@ const appRoute : Routes = [
     CartComponent,
     LoginComponent,
     DashboardComponent,
-    InfoCardComponent,   
+    InfoCardComponent,
+    CheckboxComponent,
+    ProductFormComponent,   
   ],
   imports: [
     BrowserModule,
@@ -64,7 +69,8 @@ const appRoute : Routes = [
     FormsModule,
     ReactiveFormsModule,
     ConfirmDialogModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    DialogModule
     
     
   ],

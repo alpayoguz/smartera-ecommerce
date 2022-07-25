@@ -3,7 +3,7 @@
     <div class="table__header">
         PRODUCTS
     </div>
-
+    <app-checkbox [columns] ="columns" ></app-checkbox>
     <div class="modal" [ngClass]="isModalActive ? 'setElementVisible' : '' ">
         <div class="modal__content">
             <div class="modal__top">
@@ -26,9 +26,8 @@
 
 
     </div>
-    <div class="product-form" [ngClass]="isFormActive ? 'setElementVisible' : '' ">
+    <!-- <div class="product-form" [ngClass]="isFormActive ? 'setElementVisible' : '' ">
         <form class="product-form__content" [formGroup]="newProductForm" (ngSubmit)="createNewProduct($event)">
-            <!-- <div *ngIf="">evet</div> -->
             <div class="justify-end">
                 <fa-icon class="c-pointer" (click)="setFormStatus()" class="fa-xl red" [icon]="faTimes"></fa-icon>
             </div>
@@ -42,7 +41,7 @@
             </div>
             <div>
                 <label for="category">Category</label>
-                <select formControlName="category" name="category" id="category">
+                <select style="border: 2px solid orange ;" formControlName="category" name="category" id="category">
                     <option value="men's clothing">men's clothing</option>
                     <option value="jewelery">jewelery</option>
                     <option value="electronic">electronics</option>
@@ -65,45 +64,33 @@
                 <button [ngClass]="newProductForm.invalid ? 'invalid' : '' " [disabled]="newProductForm.invalid"
                     class="product-form__button" type="submit">Create</button>
             </div>
-
-
-
         </form>
+    </div> -->
+    <app-product-form (newProductEvent) = "createNewProduct($event)" ></app-product-form>
+    <div style="position: relative ;">
+        <section
+            [ngClass]="{'alert':true, 'opacity' : alertObject.isAlertVisible, 'success':alertObject.alertType === 'add', 'danger':alertObject.alertType === 'remove'}">
+            <!-- <span>&times;</span> -->
+            {{alertObject.alertMessage}}
+        </section>
 
-    </div>
-
-    <div>
         <table class="table__content">
-            <tr class="product__row">
+            <tr class="product__row" >
                 <td (click)="setFormStatus()" class="add__product">
                     Add Product
                 </td>
-                <td>
-
-                </td>
-                <td>
-
-                </td>
-                <td>
-
-                </td>
-                <td>
-
-                </td>
-                <td>
-
+                <td  *ngFor="let column of columns">
                 </td>
             </tr>
             <tr class="table__row">
-                <th>
-                    id
+                <th *ngFor="let column of columns" [attr.id] = "column">
+                   <span>
+                    {{column}}
+                   </span> 
+                   <!--  -->
+
                 </th>
-                <th>
-                    Name
-                </th>
-                <th>Category</th>
-                <th>Price</th>
-                <th>Stock</th>
+               
                 <th>
                 </th>
             </tr>
@@ -120,7 +107,7 @@
                     </div>
                 </td>
                 <td (dblclick)="editField(product, 'category')">
-                    <div *ngIf="product.editFieldName === 'category'" >
+                    <div *ngIf="product.editFieldName === 'category'">
                         <select (change)="editField(product, 'category')" [(ngModel)]="product.category">
                             <option value="men's clothing">men's clothing</option>
                             <option value="jewelery">jewelery</option>
@@ -133,10 +120,10 @@
                     </div>
 
                 </td>
-                <td (keyup.enter)="editField(product, 'price')" (dblclick)="editField(product, 'price')" >
+                <td (keyup.enter)="editField(product, 'price')" (dblclick)="editField(product, 'price')">
 
                     <div *ngIf="product.editFieldName === 'price'">
-                        <input type="number"  [(ngModel)] ="product.price" />
+                        <input type="number" [(ngModel)]="product.price" />
                     </div>
                     <div *ngIf="product.editFieldName !== 'price' ">
                         ${{product.price}}
@@ -144,17 +131,18 @@
                 </td>
                 <td (dblclick)="editField(product, 'stock')" (keyup.enter)="editField(product, 'stock')">
                     <div *ngIf="product.editFieldName === 'stock' ">
-                        <input type="number" [(ngModel)] = "product.stock">
+                        <input type="number" [(ngModel)]="product.stock">
                     </div>
                     <div *ngIf="product.editFieldName !== 'stock' ">
                         {{product.stock}}
                     </div>
-                   
+
 
                 </td>
 
-                <td class="table__button">
+                <td class="table__buttons">
                     <fa-icon (click)="setModalStatus(product.id)" class="red" [icon]="faTrash"></fa-icon>
+
                 </td>
             </tr>
 

@@ -11,6 +11,7 @@
     padding: 20px 15px 5px;
   }
   &__content {
+    position: relative;
     table-layout: fixed;
     width: 250px;
     max-width: 90%;
@@ -22,24 +23,24 @@
     overflow: hidden;
   }
   &__add-button {
-    // width: 80px;
-    // height: 20px;
-    // font-size: 10px;
-    // padding: 0;
     -ms-transform: skewX(20deg);
     -webkit-transform: skewX(20deg);
     transform: skewX(20deg);
-    // display: inline-block;
     cursor: pointer;
     &:active {
       transform: scale(0.98);
       box-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.24);
     }
   }
+  &__buttons > *{
+    padding: 5px;
+    margin-left: 3px;
+  }
 }
 
 th {
   color: #ffffff;
+  position: relative;
   background: rgb(234, 154, 7);
   border-right: 1px solid #343a45;
   font-size: 12px;
@@ -97,8 +98,15 @@ td {
   color: red;
   cursor: pointer;
 }
+.success{
+  background-color: green !important;
+}
+.danger{
+  background-color: red;
+}
 .modal {
   background-color: rgba(0, 0, 0, 0.35);
+  z-index: 50;
   position: fixed;
   top: 0;
   left: 0;
@@ -156,6 +164,7 @@ td {
 }
 .product-form {
   background-color: rgba(0, 0, 0, 0.4);
+  z-index: 50;
   width: 100vw;
   height: 100vh;
   display: flex;
@@ -236,6 +245,9 @@ body {
   opacity: 1;
   pointer-events: all;
 }
+.opacity{
+  opacity: 1 !important;
+}
 // GLOBAL ELEMENTS
 
 input{
@@ -259,11 +271,29 @@ background-color: lightgreen;
 cursor: default;
 }
 
-
+.alert {
+  position: absolute;
+  z-index: 10;
+  opacity: 0;
+  pointer-events: none;
+  top: -1%;
+  right: 3%;
+  width: 50%;
+  
+  max-width: 300px;
+  box-sizing: border-box;
+  padding: 5px;
+  background-color: #f44336;
+  color: white;
+  border-radius: 5px;
+  font-size: 12px;
+  animation: rightToLeft 300ms ease-in-out  all;
+}
 // MEDIQ QUERIES
 @media (min-width: 1200.2px) {
   .table__content {
     width: 1100px;
+
   }
   .table__header {
     font-size: 30px;
@@ -338,6 +368,9 @@ cursor: default;
       padding: 0px 20px;
       box-sizing: border-box;
     }
+  }
+  .alert {
+    font-size: 20px;
   }
 
 }
@@ -420,6 +453,9 @@ cursor: default;
     height: 70%;
     border: 2px solid orange;
     outline: none;
+  }
+  .alert {
+    font-size: 12px;
   }
 }
 

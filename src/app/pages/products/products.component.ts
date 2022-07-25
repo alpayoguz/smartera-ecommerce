@@ -1,9 +1,16 @@
+import { ProductService } from './../product-details/product.service';
 import { ProductsListService } from 'src/app/pages/products-list/products-list.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { IProduct } from '../products-list/products-list.component';
-import { faTrash, faCheck, faTimes } from '@fortawesome/free-solid-svg-icons';
+import { faTrash, faCheck, faTimes, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 import { ConfirmationService } from 'primeng/api';
 import { FormBuilder, Validators } from '@angular/forms';
+import { ProductsService } from './products.service';
+interface AlertObject{
+  isAlertVisible : boolean,
+  alertMessage:string,
+  alertType:string
+}
 
 @Component({
   selector: 'app-products',
@@ -15,9 +22,18 @@ export class ProductsComponent implements OnInit {
   faTrash = faTrash;
   faCheck = faCheck;
   faTimes = faTimes;
+  faEyeSlash = faEyeSlash;
   products!: IProduct[];
   isModalActive = false;
-  isFormActive = false;
+  isFormActive = true;
+  alertObject : AlertObject = {
+    isAlertVisible : false,
+    alertMessage:"",
+    alertType:""
+  }
+  columns = this.productsService.columns
+ 
+  
   deletedProductId!: number;
   editable="true"
 
@@ -35,7 +51,9 @@ export class ProductsComponent implements OnInit {
   constructor(
     private pLService: ProductsListService,
     private confirmationService: ConfirmationService,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private productsService:ProductsService
+    
   ) {}
   ngOnInit(): void {
     this.pLService.getProductsData().subscribe((res) => {
@@ -43,18 +61,17 @@ export class ProductsComponent implements OnInit {
       console.log(this.products);
     });
   }
-  errorYazdir(){
-    console.log(this.newProductForm.get("title")?.errors);
-  }
-  createNewProduct(event:Event) {
-    event.preventDefault();
-    let newProduct:any = this.newProductForm.value;
+  createNewProduct(prdct:IProduct) {
+    this.setAlertStatus( {
+      isAlertVisible : true,
+      alertMessage:"Item successfully added",
+      alertType:"add"
+    });
+    let newProduct:any = prdct
     const lastItemId = this.products[this.products.length - 1].id;
     newProduct = {...newProduct, id:lastItemId + 1}
     this.products.push(newProduct);
-    this.errorYazdir();
-    this.setFormStatus();
-    this.clearFormInputs();
+
   }
 
   removeProduct() {
@@ -63,6 +80,11 @@ export class ProductsComponent implements OnInit {
     );
     this.products = this.orderArrayItems(this.products);
     this.setModalStatus();
+    this.setAlertStatus({
+      isAlertVisible : true,
+      alertMessage:"Item removed",
+      alertType:"remove"
+    });
   }
 
   // this will give new index all products number when remove product from array
@@ -81,9 +103,16 @@ export class ProductsComponent implements OnInit {
     }
   }
   setFormStatus() {
-    // console.log(this.createProductForm.value);
-    this.isFormActive = !this.isFormActive;
+    this.productsService.setFormStatusTrue()
+    
     this.clearFormInputs();
+  }
+  setAlertStatus(alert:AlertObject){
+    this.alertObject.alertMessage = alert.alertMessage;
+    this.alertObject.isAlertVisible = alert.isAlertVisible;
+    this.alertObject.alertType = alert.alertType
+    this.productsService.delayFunc(3000, ()=>{      this.alertObject.isAlertVisible = !this.alertObject.isAlertVisible
+    })
   }
   clearFormInputs(){
     this.newProductForm.reset();

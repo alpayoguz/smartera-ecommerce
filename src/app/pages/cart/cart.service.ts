@@ -17,15 +17,12 @@ export class CartService {
 
   setProduct(product:any){
     this.cartItemList.push(...product);
-    this.productList.next(product);
+    // this.productList.next(product);
+    this.productList.next(this.cartItemList);
   }
   getTotalPriceOfCart(){
    return this.cartItemList.map((prdct:IProduct) => prdct.quantity! * prdct.price)
     
-  }
-  
-  getTotalCartItems(){
-    // const allItemsQuanti
   }
   addToCart(product:any){
     const existingProduct = this.cartItemList.find((item:any) => item.id === product.id);
@@ -40,7 +37,6 @@ export class CartService {
       this.cartItemList.push({...product, quantity:1});
     }
     this.productList.next(this.cartItemList);
-    // this.getTotalPrice();
   }
   removeCartItem(product: any){
    this.cartItemList = this.cartItemList.filter((prdct:any) => prdct.id !== product.id)
