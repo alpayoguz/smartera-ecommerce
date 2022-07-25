@@ -8,34 +8,37 @@
         <div class="product-form__header">
             Product Details
         </div>
-        <div>
-            <label for="name">Name</label>
-            <input formControlName="title" type="text" id="name">
+        <div class="product-form__inputs">
+            <div>
+                <label for="name">Name</label>
+                <input formControlName="name" type="text" id="name">
+            </div>
+            <div>
+                <label for="category">Category</label>
+                <select style="border: 2px solid orange ;" formControlName="category" name="category" id="category">
+                    <option value="men's clothing">men's clothing</option>
+                    <option value="jewelery">jewelery</option>
+                    <option value="electronic">electronics</option>
+                    <option value="women's clothing">women's clothing</option>
+                </select>
+            </div>
+            <div>
+                <label for="price">Price</label>
+                <input formControlName="price" type="number" id="price" />
+            </div>
+            <div>
+                <label for="description">Description</label>
+                <input formControlName="description" type="text" name="description" id="description">
+            </div>
+            <div>
+                <label for="stock">Stock</label>
+                <input formControlName="stock" type="number" name="stock" id="stock">
+            </div>
+            <div>
+                <button [ngClass]="newProductForm.invalid ? 'invalid' : '' " [disabled]="newProductForm.invalid"
+                    class="product-form__button" type="submit">Create</button>
+            </div>
         </div>
-        <div>
-            <label for="category">Category</label>
-            <select style="border: 2px solid orange ;" formControlName="category" name="category" id="category">
-                <option value="men's clothing">men's clothing</option>
-                <option value="jewelery">jewelery</option>
-                <option value="electronic">electronics</option>
-                <option value="women's clothing">women's clothing</option>
-            </select>
-        </div>
-        <div>
-            <label for="price">Price</label>
-            <input formControlName="price" type="number" id="price" />
-        </div>
-        <div>
-            <label for="description">Description</label>
-            <input formControlName="description" type="text" name="description" id="description">
-        </div>
-        <div>
-            <label for="stock">Stock</label>
-            <input formControlName="stock" type="number" name="stock" id="stock">
-        </div>
-        <div>
-            <button [ngClass]="newProductForm.invalid ? 'invalid' : '' " [disabled]="newProductForm.invalid"
-                class="product-form__button" type="submit">Create</button>
-        </div>
+       
     </form>
 </div>

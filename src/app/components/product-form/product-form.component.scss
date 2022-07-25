@@ -33,8 +33,6 @@
     -moz-box-shadow: 11px 17px 12px 0px rgba(0, 0, 0, 0.75);
     box-shadow: 11px 17px 12px 0px rgba(0, 0, 0, 0.75);
     border-radius: 3px;
-    & label {
-    }
     & input {
       width: 120px;
     }
@@ -54,6 +52,21 @@
     border: none;
     cursor: pointer;
   }
+  &__inputs{
+    display: flex;
+    flex-direction: column;
+    width: 50%  !important;
+    row-gap: 10px;
+    & div{
+      color: black;
+      & input{
+        border: 1px solid orange;
+        outline: none;
+        text-align: center;
+
+      }
+    }
+  }
 }
 
 .setElementVisible {
@@ -69,4 +82,23 @@
 }
 .c-pointer {
   cursor: pointer;
+}
+
+
+
+//MEDIA QUERIES
+
+@media(max-width:480px){
+  .product-form__inputs{
+    display: flex;
+    flex-direction: column;
+    width: 100%  !important;
+    row-gap: 10px;
+    & div{
+      color: black;
+      & input{
+        border: 1px solid orange;
+      }
+    }
+  }
 }

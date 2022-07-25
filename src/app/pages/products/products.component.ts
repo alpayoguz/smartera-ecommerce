@@ -45,10 +45,6 @@ export class ProductsComponent implements OnInit {
     Name:false,
   }
     
-
-  
- 
-  
   setIsColumnStatus(info:string){
     if(this.columnsHiddenStatus.hasOwnProperty(info)){
       this.columnsHiddenStatus[info] = !this.columnsHiddenStatus[info];
