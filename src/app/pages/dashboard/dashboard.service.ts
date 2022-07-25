@@ -7,7 +7,7 @@ import { IProduct } from '../products-list/products-list.component';
 export class DashboardService {
 
   getCumulativeTotal(products: IProduct[]):number{ // sums array items 
-    const productsCount = products.map(item => item.rating.count);
+    const productsCount = products.map(item => item.stock);
     return productsCount.reduce((curVal, prevVal) => curVal + prevVal, 0)
   }
   getTotalRevenue(products: IProduct[]){ // sums total price of all products

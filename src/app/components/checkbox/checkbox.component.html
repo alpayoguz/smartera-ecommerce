@@ -1,6 +1,6 @@
 <div class="table__checkboxes">
     <div class="table__checkbox" *ngFor="let column of columns ">
         <label [attr.for]="column">{{column}}</label>
-        <input type="checkbox" [attr.id]="column" [attr.name]="column" [attr.value]="column">
+        <input (change) ="setColumnStatus($event)" type="checkbox" [attr.id]="column" [attr.name]="column" [attr.value]="column">
     </div>
    

@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-checkbox',
@@ -8,10 +8,17 @@ import { Component, OnInit, Input } from '@angular/core';
 export class CheckboxComponent implements OnInit {
 
   @Input() columns! : string[]
+  @Output() columnEvent = new EventEmitter();
 
   constructor() { }
 
   ngOnInit(): void {
   }
+
+  setColumnStatus(event:any){
+    this.columnEvent.emit(event.target.value);
+  }
+
+
 
 }

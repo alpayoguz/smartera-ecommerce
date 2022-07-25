@@ -3,7 +3,7 @@
     <div class="table__header">
         PRODUCTS
     </div>
-    <app-checkbox [columns] ="columns" ></app-checkbox>
+    <app-checkbox [columns] ="columns" (columnEvent) = "setIsColumnStatus($event)" ></app-checkbox>
     <div class="modal" [ngClass]="isModalActive ? 'setElementVisible' : '' ">
         <div class="modal__content">
             <div class="modal__top">
@@ -23,50 +23,10 @@
                 </button>
             </div>
         </div>
-
-
     </div>
-    <!-- <div class="product-form" [ngClass]="isFormActive ? 'setElementVisible' : '' ">
-        <form class="product-form__content" [formGroup]="newProductForm" (ngSubmit)="createNewProduct($event)">
-            <div class="justify-end">
-                <fa-icon class="c-pointer" (click)="setFormStatus()" class="fa-xl red" [icon]="faTimes"></fa-icon>
-            </div>
 
-            <div class="product-form__header">
-                Product Details
-            </div>
-            <div>
-                <label for="name">Name</label>
-                <input formControlName="title" type="text" id="name">
-            </div>
-            <div>
-                <label for="category">Category</label>
-                <select style="border: 2px solid orange ;" formControlName="category" name="category" id="category">
-                    <option value="men's clothing">men's clothing</option>
-                    <option value="jewelery">jewelery</option>
-                    <option value="electronic">electronics</option>
-                    <option value="women's clothing">women's clothing</option>
-                </select>
-            </div>
-            <div>
-                <label for="price">Price</label>
-                <input formControlName="price" type="number" id="price" />
-            </div>
-            <div>
-                <label for="description">Description</label>
-                <input formControlName="description" type="text" name="description" id="description">
-            </div>
-            <div>
-                <label for="stock">Stock</label>
-                <input formControlName="stock" type="number" name="stock" id="stock">
-            </div>
-            <div>
-                <button [ngClass]="newProductForm.invalid ? 'invalid' : '' " [disabled]="newProductForm.invalid"
-                    class="product-form__button" type="submit">Create</button>
-            </div>
-        </form>
-    </div> -->
     <app-product-form (newProductEvent) = "createNewProduct($event)" ></app-product-form>
+
     <div style="position: relative ;">
         <section
             [ngClass]="{'alert':true, 'opacity' : alertObject.isAlertVisible, 'success':alertObject.alertType === 'add', 'danger':alertObject.alertType === 'remove'}">
@@ -83,30 +43,29 @@
                 </td>
             </tr>
             <tr class="table__row">
-                <th *ngFor="let column of columns" [attr.id] = "column">
+                <th [ngClass]="columnsHiddenStatus[column] ? 'noDisplay' : '' "   *ngFor="let column of columns" [attr.id] = "column">
                    <span>
                     {{column}}
                    </span> 
-                   <!--  -->
-
                 </th>
                
                 <th>
                 </th>
             </tr>
             <tr *ngFor="let product of products" class="table__row">
-                <td>
+                <!-- <div class="modal" [ngClass]="isModalActive ? 'setElementVisible' : '' "></div> -->
+                <td [ngClass]="columnsHiddenStatus.id ? 'noDisplay' : '' " >
                     {{product.id}}
                 </td>
-                <td (keyup.enter)="editField(product, 'title')" (dblclick)="editField(product, 'title')">
-                    <div class="table__row-name" *ngIf="product.editFieldName === 'title'">
-                        <input [(ngModel)]="product.title" />
+                <td [ngClass]="columnsHiddenStatus.Name ? 'noDisplay' : '' " [attr.id]="product.name" (keyup.enter)="editField(product, 'name')" (dblclick)="editField(product, 'title')">
+                    <div class="table__row-name" *ngIf="product.editFieldName === 'name'">
+                        <input [(ngModel)]="product.name" />
                     </div>
-                    <div *ngIf="product.editFieldName !== 'title'" class="table__row-name">
-                        {{product.title}}
+                    <div  *ngIf="product.editFieldName !== 'title'" class="table__row-name">
+                        {{product.name}}
                     </div>
                 </td>
-                <td (dblclick)="editField(product, 'category')">
+                <td [ngClass]="columnsHiddenStatus.Category ? 'noDisplay' : '' " id="category" (dblclick)="editField(product, 'category')">
                     <div *ngIf="product.editFieldName === 'category'">
                         <select (change)="editField(product, 'category')" [(ngModel)]="product.category">
                             <option value="men's clothing">men's clothing</option>
@@ -120,8 +79,7 @@
                     </div>
 
                 </td>
-                <td (keyup.enter)="editField(product, 'price')" (dblclick)="editField(product, 'price')">
-
+                <td [ngClass]="columnsHiddenStatus.Price ? 'noDisplay' : '' " id="price" (keyup.enter)="editField(product, 'price')" (dblclick)="editField(product, 'price')">
                     <div *ngIf="product.editFieldName === 'price'">
                         <input type="number" [(ngModel)]="product.price" />
                     </div>
@@ -129,7 +87,7 @@
                         ${{product.price}}
                     </div>
                 </td>
-                <td (dblclick)="editField(product, 'stock')" (keyup.enter)="editField(product, 'stock')">
+                <td [ngClass]="columnsHiddenStatus.Stock ? 'noDisplay' : '' " id="stock" (dblclick)="editField(product, 'stock')" (keyup.enter)="editField(product, 'stock')">
                     <div *ngIf="product.editFieldName === 'stock' ">
                         <input type="number" [(ngModel)]="product.stock">
                     </div>
@@ -145,12 +103,6 @@
 
                 </td>
             </tr>
-
-
-
-
-
-
         </table>
     </div>
 

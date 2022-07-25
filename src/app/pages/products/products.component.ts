@@ -2,7 +2,7 @@ import { ProductService } from './../product-details/product.service';
 import { ProductsListService } from 'src/app/pages/products-list/products-list.service';
 import { Component, OnInit} from '@angular/core';
 import { IProduct } from '../products-list/products-list.component';
-import { faTrash, faCheck, faTimes, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
+import { faTrash, faCheck, faTimes, faEyeSlash, faColumns } from '@fortawesome/free-solid-svg-icons';
 import { ConfirmationService } from 'primeng/api';
 import { FormBuilder, Validators } from '@angular/forms';
 import { ProductsService } from './products.service';
@@ -23,7 +23,10 @@ export class ProductsComponent implements OnInit {
   faCheck = faCheck;
   faTimes = faTimes;
   faEyeSlash = faEyeSlash;
+
   products!: IProduct[];
+
+  
   isModalActive = false;
   isFormActive = true;
   alertObject : AlertObject = {
@@ -31,23 +34,29 @@ export class ProductsComponent implements OnInit {
     alertMessage:"",
     alertType:""
   }
+  deletedProductId!: number;
   columns = this.productsService.columns
+
+  columnsHiddenStatus : any = {
+    id:false,
+    Category:false,
+    Price:false,
+    Stock:false,
+    Name:false,
+  }
+    
+
+  
  
   
-  deletedProductId!: number;
-  editable="true"
+  setIsColumnStatus(info:string){
+    if(this.columnsHiddenStatus.hasOwnProperty(info)){
+      this.columnsHiddenStatus[info] = !this.columnsHiddenStatus[info];
+    }
+  }
 
-  newProductForm  = this.fb.group({
-    id:0,
-    title: ['',  [Validators.required, Validators.minLength(5)]],
-    description: ['',  [Validators.required, Validators.minLength(5)]],
-    category: ['',  [Validators.required,  Validators.minLength(3)]],
-    price: [0,  Validators.required],
-    stock: [0,  Validators.required],
-    valid:true,
-    editFieldName:""
-  },
-  );
+  
+  // editable="true"
   constructor(
     private pLService: ProductsListService,
     private confirmationService: ConfirmationService,
@@ -57,8 +66,7 @@ export class ProductsComponent implements OnInit {
   ) {}
   ngOnInit(): void {
     this.pLService.getProductsData().subscribe((res) => {
-      this.products = this.arrangeStockForProducts(res);
-      console.log(this.products);
+      this.products = this.productsService.changeProductProps(res);
     });
   }
   createNewProduct(prdct:IProduct) {
@@ -73,7 +81,6 @@ export class ProductsComponent implements OnInit {
     this.products.push(newProduct);
 
   }
-
   removeProduct() {
     this.products = this.products.filter(
       (prdct) => prdct.id !== this.deletedProductId
@@ -104,8 +111,6 @@ export class ProductsComponent implements OnInit {
   }
   setFormStatus() {
     this.productsService.setFormStatusTrue()
-    
-    this.clearFormInputs();
   }
   setAlertStatus(alert:AlertObject){
     this.alertObject.alertMessage = alert.alertMessage;
@@ -114,22 +119,7 @@ export class ProductsComponent implements OnInit {
     this.productsService.delayFunc(3000, ()=>{      this.alertObject.isAlertVisible = !this.alertObject.isAlertVisible
     })
   }
-  clearFormInputs(){
-    this.newProductForm.reset();
-  }
-
-  // this function will take rating.count property of product 
-  // and turn into a new property named 'stock' and  add 
-   // new properties named 'valid' and 'editFieldName' 
-  arrangeStockForProducts(prdcts: any){ 
-   const arrangedArray = prdcts.map((item:any) => {
-      const {rating,...rest } = item
-      const arrangedObject = {stock:rating.count,valid:true,editFieldName:"", ...rest}
-      return arrangedObject
-    } )
-    return arrangedArray
-  }
-
+  
   editField(product:any, field:string){
     if(product.editFieldName === ""){
       this.products.forEach(prdct => prdct.editFieldName = "");

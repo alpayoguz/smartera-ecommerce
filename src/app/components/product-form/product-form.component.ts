@@ -43,8 +43,6 @@ export class ProductFormComponent implements OnInit {
     this.newProductEvent.emit(this.newProductForm.value);
     this.setFormStatusFalse();
     this.clearFormInputs();
-
-
   }
   constructor( private fb: FormBuilder,private productsService : ProductsService) {}
 
@@ -58,7 +56,6 @@ export class ProductFormComponent implements OnInit {
       .subscribe(res => 
         {
           this.isFormActive = res
-          console.log(this.isFormActive)
         }
 
         )
