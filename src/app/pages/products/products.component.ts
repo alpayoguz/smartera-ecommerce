@@ -28,7 +28,7 @@ export class ProductsComponent implements OnInit {
 
   
   isModalActive = false;
-  isFormActive = true;
+  isFormActive = false;
   alertObject : AlertObject = {
     isAlertVisible : false,
     alertMessage:"",

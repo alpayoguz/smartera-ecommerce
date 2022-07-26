@@ -12,7 +12,7 @@
   }
   &__content {
     position: relative;
-    table-layout: fixed;
+    // table-layout: fixed;
     width: 250px;
     max-width: 90%;
     margin: auto;
@@ -40,6 +40,7 @@
 
 th {
   color: #ffffff;
+  resize: horizontal;
   position: relative;
   background: rgb(234, 154, 7);
   border-right: 1px solid #343a45;
@@ -49,10 +50,11 @@ th {
   text-align: center;
   text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
   vertical-align: middle;
-  table-layout: fixed;
+  // table-layout: fixed;
   overflow: hidden;
   &:first-child {
     border-top-left-radius: 3px;
+    resize: none;
   }
 
   &:last-child {
@@ -79,8 +81,10 @@ tr {
   }
 }
 td {
+  
+  
   width: 100px;
-  table-layout: fixed;
+  // table-layout: fixed;
   background: #ffffff;
   padding: 2px;
   text-align: center;
@@ -304,13 +308,13 @@ cursor: default;
     padding-bottom: 20px;
   }
   th {
-    max-width: 80px;
+    // max-width: 80px;
     font-size: 22px;
     max-height: 30px;
     min-height: 30px;
   }
   td {
-    max-width: 80px;
+    // max-width: 80px;
     font-size: 20px;
     max-height: 30px;
     min-height: 30px;
@@ -346,14 +350,14 @@ cursor: default;
     text-align: center;
   }
   th {
-    max-width: 80px;
+    // max-width: 80px;
 
     font-size: 22px;
     max-height: 30px;
     min-height: 30px;
   }
   td {
-    max-width: 80px;
+    // max-width: 80px;
     font-size: 20px;
     max-height: 30px;
     min-height: 30px;
@@ -386,14 +390,14 @@ cursor: default;
     padding-left: 20px;
   }
   th {
-    max-width: 80px;
+    // max-width: 80px;
 
     font-size: 18px;
     max-height: 30px;
     min-height: 30px;
   }
   td {
-    max-width: 80px;
+    // max-width: 80px;
     font-size: 13px;
     max-height: 30px;
     min-height: 30px;
@@ -414,11 +418,11 @@ cursor: default;
     padding-left: 15px;
   }
   th {
-    max-width: 30px;
+    // max-width: 30px;
     font-size: 12px;
   }
   td {
-    max-width: 30px;
+    // max-width: 30px;
     font-size: 9px;
   }
   .table__row-name {
@@ -436,11 +440,11 @@ cursor: default;
     width: 600px;
   }
   th {
-    max-width: 30px;
+    // max-width: 30px;
     font-size: 12px;
   }
   td {
-    max-width: 30px;
+    // max-width: 30px;
     font-size: 9px;
   }
 
@@ -467,12 +471,12 @@ cursor: default;
     width: 260px;
   }
   th {
-    max-width: 30px;
+    // max-width: 30px;
     height: 20px;
     font-size: 12px;
   }
   td {
-    max-width: 30px;
+    // max-width: 30px;
     height: 20px;
     font-size: 9px;
   }

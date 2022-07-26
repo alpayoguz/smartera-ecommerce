@@ -2,7 +2,7 @@
     <form class="product-form__content" [formGroup]="newProductForm" (ngSubmit)="createNewItem($event)">
         <!-- <div *ngIf="">evet</div> -->
         <div class="justify-end">
-            <fa-icon class="c-pointer" (click)="setFormStatusFalse()" class="fa-xl red" [icon]="faTimes"></fa-icon>
+            <fa-icon  (click)="setFormStatusFalse()" class="fa-2xl red c-pointer" [icon]="faTimes"></fa-icon>
         </div>
 
         <div class="product-form__header">
@@ -15,7 +15,7 @@
             </div>
             <div>
                 <label for="category">Category</label>
-                <select style="border: 2px solid orange ;" formControlName="category" name="category" id="category">
+                <select style="border: 1px solid orange ;" formControlName="category" name="category" id="category">
                     <option value="men's clothing">men's clothing</option>
                     <option value="jewelery">jewelery</option>
                     <option value="electronic">electronics</option>

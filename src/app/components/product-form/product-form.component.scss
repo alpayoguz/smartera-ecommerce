@@ -68,7 +68,11 @@
     }
   }
 }
+input[type="checkbox"]:checked{
+ cursor: pointer;
+}
 
+//CREATED CLASSESS
 .setElementVisible {
   opacity: 1;
   pointer-events: all;
@@ -81,7 +85,10 @@
   cursor: default;
 }
 .c-pointer {
-  cursor: pointer;
+  cursor: pointer !important;
+}
+.red{
+  color: red;
 }
 
 
