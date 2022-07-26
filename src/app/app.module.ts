@@ -1,3 +1,7 @@
+import { ProductDetailsModule } from './pages/product-details/product-details.module';
+import { ProductsListModule } from './pages/products-list/products-list.module';
+import { ProductsModule } from './pages/products/products.module';
+import { DashboardModule } from './pages/dashboard/dashboard.module';
 import { ProductFormComponent } from './components/product-form/product-form.component';
 import { CheckboxComponent } from './components/checkbox/checkbox.component';
 import { Badge, BadgeModule } from 'primeng/badge';
@@ -26,40 +30,20 @@ import { InfoCardComponent } from './components/info-card/info-card.component';
 import {ConfirmDialogModule} from 'primeng/confirmdialog';
 import {ConfirmationService} from 'primeng/api';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CommonModule } from '@angular/common';
 import {DialogModule} from 'primeng/dialog';
-// const appRoute : Routes = [
-//   {path:"", redirectTo:"login", pathMatch:"full"},
-//   {path:"login", component:LoginComponent},
-//   {path:"dashboard", component:DashboardComponent},
-//   {path:"products-list", component:ProductsListComponent},
-//   {path:"products", component:ProductsComponent},
-//   {path:"product-details", component:ProductDetailsComponent},
-//   {path:"product-details/:productId/info", component:ProductDetailsComponent},
-//   {path:"cart", component:CartComponent},
-//   {path:"**", component:PageNotFoundComponent}
-//   // should be always last path on the configuration
-// ]
+
 
 
 @NgModule({
   declarations: [
-    AppComponent,
-    NavbarComponent,
-    ProductsListComponent,
-    ProductsComponent,
-    SafePipePipe,
-    ProductDetailsComponent,
+    AppComponent,  
+    // ProductDetailsComponent,
     PageNotFoundComponent,
-    CartComponent,
-    LoginComponent,
-    DashboardComponent,
-    InfoCardComponent,
-    CheckboxComponent,
-    ProductFormComponent,   
+    LoginComponent,  
   ],
   imports: [
     BrowserModule,
-    // RouterModule.forRoot(appRoute),
     HttpClientModule,
     AppRoutingModule,
     FontAwesomeModule,
@@ -69,9 +53,9 @@ import {DialogModule} from 'primeng/dialog';
     ReactiveFormsModule,
     ConfirmDialogModule,
     BrowserAnimationsModule,
-    DialogModule
-    
-    
+    DialogModule,
+    ProductDetailsModule
+  
   ],
   providers: [ProductsListService, ConfirmationService],
   bootstrap: [AppComponent]

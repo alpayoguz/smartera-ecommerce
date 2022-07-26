@@ -1,3 +1,4 @@
+import { IProduct } from 'src/app/pages/products-list/products-list.component';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 
@@ -15,8 +16,8 @@ export class ProductsService {
   // and turn into a new property named 'stock' and take 'title'
   // propert and turn into a new prperty named 'name' and add 
    // new properties named 'valid' and 'editFieldName' 
-  changeProductProps(prdcts: any){ 
-    const newArray = prdcts.map((item:any) => {
+  changeProductProps(products: IProduct[]){ 
+    const newArray = products.map((item:any) => {
        const {rating,title,...rest } = item
        const newObject = {name:title,stock:rating.count,valid:true,editFieldName:"", ...rest}
        return newObject

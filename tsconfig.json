@@ -24,6 +24,8 @@
     ]
   },
   "angularCompilerOptions": {
+    "fullTemplateTypeCheck": true, 
+    "enableIvy": false, // I dont't know why but fixed 'SafePipe Issue'
     "enableI18nLegacyMessageIdFormat": false,
     "strictInjectionParameters": true,
     "strictInputAccessModifiers": true,
