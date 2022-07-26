@@ -1,4 +1,5 @@
 .cart {
+  position: relative;
   display: flex;
   min-height: 80vh;
   align-items: center;
@@ -7,6 +8,22 @@
     width: 80%;
     display: flex;
     flex-direction: column;
+  }
+  &__buy-btn{
+    max-width: 90%;
+    text-align: right;
+    & button{
+      width: 100px;
+      height: 40px;
+      background-color: orange;
+      border-radius: 4px;
+      cursor: pointer;
+      &:hover{
+        background-color: hsl(39, 90%, 51%);
+        color: white;
+        
+      }
+    }
   }
   &__header {
     font-family: "Inter";

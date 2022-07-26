@@ -76,3 +76,16 @@
     }
   }
 }
+
+// MEDIA QUERIES 
+
+@media(max-width:280px){
+  .login{
+    &__content{
+      max-width: 250px;
+    }
+    &__button{
+      max-width: 250px;
+    }
+  }
+}

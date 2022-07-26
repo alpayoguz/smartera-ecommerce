@@ -1,3 +1,4 @@
+import { BehaviorSubject } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { IProduct } from '../products-list/products-list.component';
 
@@ -6,6 +7,12 @@ import { IProduct } from '../products-list/products-list.component';
 })
 export class DashboardService {
 
+  
+  todaysBestSale = new BehaviorSubject(this.getRandomNummber())
+
+  getTodayBestSale(){
+    return this.todaysBestSale.asObservable();
+  }
   getCumulativeTotal(products: IProduct[]):number{ // sums array items 
     const productsCount = products.map(item => item.stock);
     return productsCount.reduce((curVal, prevVal) => curVal + prevVal, 0)
@@ -29,6 +36,8 @@ export class DashboardService {
     const randomNumber = Math.floor(Math.random() * 21);
     return randomNumber
   }
+
+  
 
   constructor() { }
 }

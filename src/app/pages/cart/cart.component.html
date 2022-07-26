@@ -22,7 +22,12 @@
                         </div>
                     </div>
                 </div>
+                <div class="cart__buy-btn">
+                    <button (click)="buyAll()" >Buy All</button>
+                </div>
+              
             </div>
+            
             <div *ngIf="cartItems.length === 0" class="empty-cart">
 
                 <svg class="cart__svg" viewBox="656 573 264 182" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">

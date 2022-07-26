@@ -25,6 +25,9 @@ export class CartComponent implements OnInit {
   decreaseQuantity(product:any){ // it will manage product quantity in cartItems
     this.cartService.decreaseQuantity(product);
   }
+  buyAll(){
+    this.cartService.removeAllCart();
+  }
 
  
 

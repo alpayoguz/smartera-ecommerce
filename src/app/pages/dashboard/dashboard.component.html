@@ -14,7 +14,7 @@
             </p>
             <div class="dashboard__bottom">
                 <img class="dashboard__image" [src]="todayBestSeller.image" alt="">
-                <button class="dashboard__buy-btn">BUY NOW!</button>
+                <button (click)="addToCart()" class="dashboard__buy-btn">BUY NOW!</button>
             </div>
 
 
