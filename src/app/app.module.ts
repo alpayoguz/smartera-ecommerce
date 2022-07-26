@@ -27,18 +27,18 @@ import {ConfirmDialogModule} from 'primeng/confirmdialog';
 import {ConfirmationService} from 'primeng/api';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {DialogModule} from 'primeng/dialog';
-const appRoute : Routes = [
-  {path:"", redirectTo:"login", pathMatch:"full"},
-  {path:"login", component:LoginComponent},
-  {path:"dashboard", component:DashboardComponent},
-  {path:"products-list", component:ProductsListComponent},
-  {path:"products", component:ProductsComponent},
-  {path:"product-details", component:ProductDetailsComponent},
-  {path:"product-details/:productId/info", component:ProductDetailsComponent},
-  {path:"cart", component:CartComponent},
-  {path:"**", component:PageNotFoundComponent}
-  // should be always last path on the configuration
-]
+// const appRoute : Routes = [
+//   {path:"", redirectTo:"login", pathMatch:"full"},
+//   {path:"login", component:LoginComponent},
+//   {path:"dashboard", component:DashboardComponent},
+//   {path:"products-list", component:ProductsListComponent},
+//   {path:"products", component:ProductsComponent},
+//   {path:"product-details", component:ProductDetailsComponent},
+//   {path:"product-details/:productId/info", component:ProductDetailsComponent},
+//   {path:"cart", component:CartComponent},
+//   {path:"**", component:PageNotFoundComponent}
+//   // should be always last path on the configuration
+// ]
 
 
 @NgModule({
@@ -59,7 +59,7 @@ const appRoute : Routes = [
   ],
   imports: [
     BrowserModule,
-    RouterModule.forRoot(appRoute),
+    // RouterModule.forRoot(appRoute),
     HttpClientModule,
     AppRoutingModule,
     FontAwesomeModule,
